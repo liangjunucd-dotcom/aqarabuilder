@@ -1,0 +1,108 @@
+export const GlobalStats = {
+  acbs: 5247,
+  studios: 128430,
+  personas: 1840000,
+  countries: 4,
+  homes: 89500,
+  applies: 246800, // 累计 Apply 次数
+};
+
+export const LighthouseCountries = [
+  {
+    code: 'CN',
+    name: '中国',
+    flag: '🇨🇳',
+    mode: '总部直管 + 老服务商升级',
+    acbs: 4128,
+    studios: 102450,
+    cities: ['上海', '北京', '深圳', '成都', '杭州', '广州'],
+    coords: { x: 78, y: 38 }, // % on world map
+    color: '#ef4444',
+    status: 'live' as const,
+  },
+  {
+    code: 'KR',
+    name: '韩国',
+    flag: '🇰🇷',
+    mode: '国家代理 + Aqara Space 门店',
+    acbs: 412,
+    studios: 8732,
+    cities: ['首尔 Seoul', '釜山 Busan'],
+    coords: { x: 84, y: 42 },
+    color: '#a855f7',
+    status: 'live' as const,
+  },
+  {
+    code: 'AE',
+    name: '阿联酋',
+    flag: '🇦🇪',
+    mode: '国家代理 + Aqara Space 门店',
+    acbs: 138,
+    studios: 4521,
+    cities: ['Dubai', 'Abu Dhabi'],
+    coords: { x: 60, y: 49 },
+    color: '#f59e0b',
+    status: 'live' as const,
+  },
+  {
+    code: 'IT',
+    name: '意大利',
+    flag: '🇮🇹',
+    mode: 'Operator-Store 过渡(米兰首店)',
+    acbs: 47,
+    studios: 312,
+    cities: ['Milano'],
+    coords: { x: 51, y: 38 },
+    color: '#10b981',
+    status: 'pilot' as const,
+  },
+  // Phase 2 候选(灰色显示)
+  {
+    code: 'US',
+    name: '美国',
+    flag: '🇺🇸',
+    mode: 'Phase 2 候选',
+    acbs: 0,
+    studios: 0,
+    cities: ['Los Angeles', 'San Francisco', 'New York', 'Miami'],
+    coords: { x: 22, y: 42 },
+    color: '#64748b',
+    status: 'planned' as const,
+  },
+  {
+    code: 'JP',
+    name: '日本',
+    flag: '🇯🇵',
+    mode: 'Phase 2 候选',
+    acbs: 0,
+    studios: 0,
+    cities: ['Tokyo', 'Osaka'],
+    coords: { x: 87, y: 41 },
+    color: '#64748b',
+    status: 'planned' as const,
+  },
+  {
+    code: 'DE',
+    name: '德国 / 欧洲',
+    flag: '🇩🇪',
+    mode: 'Phase 2 候选',
+    acbs: 0,
+    studios: 0,
+    cities: ['Berlin', 'London', 'Paris', 'Amsterdam'],
+    coords: { x: 49, y: 33 },
+    color: '#64748b',
+    status: 'planned' as const,
+  },
+];
+
+export const GrowthMetrics = {
+  monthlyApplies: 24680,
+  weeklyApplies: 6217,
+  applyGrowthMoM: 28, // %
+  topACBLevel: 'L5',
+  topACBs: 18,
+  l4Count: 142,
+  l3Count: 894,
+  forgeCallsToday: 18470,
+  averageProjectComplexity: 3.4, // L1-L5
+};

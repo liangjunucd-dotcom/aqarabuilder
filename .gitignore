@@ -1,0 +1,76 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Node / Frontend
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+.npm/
+.next/
+out/
+dist/
+/build/
+.turbo/
+.cache/
+
+# Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+target/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files (NEVER commit secrets)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Test / Coverage
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+
+# TypeScript incremental builds
+*.tsbuildinfo
+
+# OS / Misc
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Project local
+.claude/
+.local/
+tmp/
+temp/
+.vercel
+_pf_parts/
+promptfolio_payload.json
+conversational_msgs_filtered.txt

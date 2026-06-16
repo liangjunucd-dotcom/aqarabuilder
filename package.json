@@ -1,0 +1,12 @@
+{
+  "name": "aqara-builder",
+  "private": true,
+  "description": "Aqara Builder — run scripts from repo root (app lives in prototype/)",
+  "scripts": {
+    "dev": "npm run dev --prefix prototype",
+    "build": "npm run build --prefix prototype",
+    "start": "npm run start --prefix prototype",
+    "lint": "npm run lint --prefix prototype",
+    "vercel-build": "npm run build --prefix prototype"
+  }
+}
