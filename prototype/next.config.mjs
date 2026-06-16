@@ -4,7 +4,7 @@ const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const nextConfig = {
   reactStrictMode: true,
   output: isGithubPages ? 'export' : undefined,
-  basePath: isGithubPages ? '/aqara-builder' : '',
+  basePath: isGithubPages ? '/aqarabuilder' : '',
   images: {
     unoptimized: true,
   },
