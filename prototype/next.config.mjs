@@ -5,6 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   output: isGithubPages ? 'export' : undefined,
   basePath: isGithubPages ? '/aqarabuilder' : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? '/aqarabuilder' : '',
+  },
   images: {
     unoptimized: true,
   },

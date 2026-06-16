@@ -24,6 +24,20 @@ const OPTIONS: { id: Role; icon: any; routeOnSwitch: string; planTag: string }[]
 
 // Pages where role switch should NOT navigate away (the page works for all roles)
 const NO_NAVIGATE_PATHS = ['/build', '/spider'];
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
+function removeBasePath(pathname: string) {
+  if (!BASE_PATH) return pathname;
+  if (pathname === BASE_PATH) return '/';
+  if (pathname.startsWith(`${BASE_PATH}/`)) return pathname.slice(BASE_PATH.length) || '/';
+  return pathname;
+}
+
+function withBasePath(href: string) {
+  if (!BASE_PATH || !href.startsWith('/')) return href;
+  if (href === BASE_PATH || href.startsWith(`${BASE_PATH}/`)) return href;
+  return `${BASE_PATH}${href}`;
+}
 
 function normalizeDemoRole(value: string | null): Role | null {
   if (value === 'user') return 'builder';
@@ -44,7 +58,8 @@ export function DemoModeSwitch() {
   const [open, setOpen] = useState(false);
   const [urlRole, setUrlRole] = useState<Role | null>(null);
   const [activeWorkspace, setActiveWorkspaceState] = useState<BuilderWorkspace | null>(null);
-  const pathname = usePathname() ?? '';
+  const rawPathname = usePathname() ?? '';
+  const pathname = removeBasePath(rawPathname);
   const displayRole = urlRole ?? role;
   const isProPath = pathname.startsWith('/pro');
 
@@ -90,7 +105,7 @@ export function DemoModeSwitch() {
     setUrlRole(nextRole);
     setOpen(false);
     const navigate = (target: string) => {
-      window.location.assign(target);
+      window.location.assign(withBasePath(target));
     };
 
     if (pathname && NO_NAVIGATE_PATHS.some(p => pathname.startsWith(p))) {
@@ -215,10 +230,10 @@ export function DemoModeSwitch() {
                 );
               })}
               <div className="mt-1 border-t border-border p-1.5">
-                <a href="/pro/workspaces" className="block rounded-md px-3 py-2 text-sm text-text-muted transition hover:bg-white/5 hover:text-text">
+                <a href={withBasePath('/pro/workspaces')} className="block rounded-md px-3 py-2 text-sm text-text-muted transition hover:bg-white/5 hover:text-text">
                   More...
                 </a>
-                <a href="/pro/workspaces?new=1" className="mt-1 flex items-center gap-2 rounded-md px-3 py-2 text-sm text-text-muted transition hover:bg-white/5 hover:text-text">
+                <a href={withBasePath('/pro/workspaces?new=1')} className="mt-1 flex items-center gap-2 rounded-md px-3 py-2 text-sm text-text-muted transition hover:bg-white/5 hover:text-text">
                   <Plus size={13} />
                   Create workspace
                 </a>
@@ -238,7 +253,7 @@ export function DemoModeSwitch() {
             ⓘ 仅原型演示用 — 真实环境通过登录、Onboarding、认证逐步进阶。
             <br />
             Free / Pro / Business / Enterprise 可在
-            {' '}<a href="/pricing" className="text-accent-glow hover:underline">套餐页</a>{' '}
+            {' '}<a href={withBasePath('/pricing')} className="text-accent-glow hover:underline">套餐页</a>{' '}
             查看升级路径。
           </div>
         </div>
